@@ -50,3 +50,4 @@ clear
 service --status-all
 
 history -c
+
