@@ -8,30 +8,38 @@ cd /var/www && rm -rf html
 #----------------------------------------#
 
 echo "Clone du rep git"
-echo "Entrer le lien du repository GitHub"
+echo -n "Lien du repository GitHub : "
 read git
-git clone $git
-cd *
+echo -n "Nom du projet : "
+read project
+echo "Clonage du repository dans /var/www/$project"
+git clone "$git" "/var/www/$project"
+cd "/var/www/$project"
+echo "Clonage terminer !"
 
 #----------------------------------------#
 
 echo "Installation des dépendances"
-composer install -y
-yarn install -y
+echo "Installation de Composer"
+composer install
+echo "Installation de Yarn"
+yarn install
+echo "Build de Yarn"
+yarn build
 
 #----------------------------------------#
 
 echo "Installation de Symfony"
 symfony console d:d:c
-symfony console make:migr
+symfony console m:migr
 symfony console d:m:m
 
 #----------------------------------------#
 
 echo "Configuration de Nginx"
 rm -rf /etc/nginx/sites-available/default
-mv nginx.conf /etc/nginx/sites-available/default.conf
-ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enable/
+mv /var/www/"$project"/nginx.conf /etc/nginx/sites-available/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enable/
 echo "On vérifie si la config est OK"
 nginx -t
 

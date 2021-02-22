@@ -16,7 +16,7 @@ wget https://get.symfony.com/cli/installer -O - | bash
 mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 
 echo "Install Composer"
-curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
+apt install composer -y
 
 echo "Install PHP"
 apt-get install lsb-release apt-transport-https ca-certificates -y
