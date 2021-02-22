@@ -49,6 +49,8 @@ if [ $? -eq 0 ]; then
   echo "FAIL"
 fi
 
+sleep 5
+
 systemctl reload nginx
 
 #----------------------------------------#
