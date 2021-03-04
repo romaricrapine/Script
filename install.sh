@@ -5,18 +5,26 @@ clear
 echo "Update"
 apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
 
+#----------------------------------------#
+
 echo "Base"
 apt-get install nodejs npm curl git nano make wget sudo apt-transport-https lsb-release ca-certificates locate systemd nginx fail2ban -y
 apt-get purge ntp rsyslog exim* postfix* sendmail* updatedb ldconfig -y
 
 service nginx start
 
+#----------------------------------------#
+
 echo "Install Symfony"
 wget https://get.symfony.com/cli/installer -O - | bash
 mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 
+#----------------------------------------#
+
 echo "Install Composer"
 apt install composer -y
+
+#----------------------------------------#
 
 echo "Install PHP"
 apt-get install lsb-release
@@ -26,12 +34,18 @@ echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt
 apt-get update
 apt-get install php7.4 -y
 
+#----------------------------------------#
+
 echo "PHP Packages"
 apt-get install php7.4-{fpm,bcmath,bz2,intl,gd,mbstring,mysql,zip,redis,imagick,intl,yaml,xml,pdo} -y
+
+#----------------------------------------#
 
 echo "Install Redis"
 apt-get install redis-server -y
 service redis-server start
+
+#----------------------------------------#
 
 echo "Install Mysql 8"
 cd /tmp
@@ -40,8 +54,19 @@ dpkg -i mysql-apt-config*
 rm -rf mysql-apt-config_0.8.13-1_all.deb
 apt update && apt install mysql-server -y
 
+#----------------------------------------#
+
+echo "Create BDD"
+echo "To create your database please enter this: CREATE DATABASE IF NOT EXISTS databasedname; Then exit;"
+echo "Please enter your password"
+mysql -u root -p
+
+#----------------------------------------#
+
 echo "Install Yarn"
 npm install -g yarn -y
+
+#----------------------------------------#
 
 echo "Remove Apache"
 service apache2 stop
@@ -51,11 +76,23 @@ service --status-all
 
 history -c
 
+#----------------------------------------#
+
 echo "Do you want to run the deployment script?"
 echo "Y/N or Yes/No"
 read response
 
-if [ $response == Y ] || [ $response == y ] || [ $response == yes ]; then
+if
+[ $response == Y ] ||
+[ $response == y ] ||
+[ $response == yes ] ||
+[ $response == Yes ] ||
+[ $response == YEs ] ||
+[ $response == YES ] ||
+[ $response == yEs ] ||
+[ $response == yES ] ||
+[ $response == YeS ] ||
+[ $response == yeS ]; then
 
 #!/bin/bash
 
@@ -87,10 +124,8 @@ yarn build
 
 #----------------------------------------#
 
-echo "Installing Symfony"
-symfony console d:d:c
-symfony console make:migration
-symfony console d:m:m
+echo "Update Schema DATABASE"
+symfony console doctrine:schema:update
 
 #----------------------------------------#
 
