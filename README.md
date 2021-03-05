@@ -56,7 +56,7 @@ _(Il est possible de modifier le chemin en touchant un peu les lignes de code)_
     - Ouvrez votre invite de commande (CMDER recommandé pour Windows) puis tapez : <br>
     ```ssh root@ip_de_votre_serveur``` <br>
     - Une demande pour accepter le certificat vous seras adressé, il suffit juste de faire "Yes" ou "Y" puis entrer.
-    - Ensuite il vous faut le mot de passe que vous avez inscrit en créant le serveur. (Attention ! Le mot de passe et invisible CTRL+V ou clique droit pour copier le texte qui est dans votre presse papier).
+    - Ensuite il vous faut le mot de passe que vous avez inscrit en créant le serveur. (**Attention ! Le mot de passe et invisible CTRL+V ou clique droit pour copier le texte qui est dans votre presse papier**).
     - Vous voilà connecter au serveur en SSH.<br><br>
     
 3. Une fois connecté au serveur il ne vous reste plus qu'à exécuter le script. <br><br>
@@ -73,8 +73,8 @@ _(Il est possible de modifier le chemin en touchant un peu les lignes de code)_
       
 4. Le script est en cours de deployment mais il reste encore quelques petite configuration à faire.<br><br>
     - Au bout d'un certain temps le script vous demanderas de choisir entre 4 choix pour un serveur MYSQL, sélectionner juste "OK".
-    - Ensuite il vous faudra inscrire un mot de passe pour la connexion à MySQL (il doit être identique à celui de inscrit dans votre .env).
-    - Ici petit soucis avec CMDER car le script demande une deuxième fois le mot de passe mais il est possible que la page de CMDER bug et que vous ne voyez pas ce qu'il y a d'écrit MAIS, il est possible d'écrire donc fait bien attention d'écrire le même mot de passe et ensuite appuyer plusieurs fois sur ``ENTRER`` jusqu'à ce que l'affichage redevienne normal.
+    - Ensuite il vous faudra inscrire un mot de passe pour la connexion à MySQL (**il doit être identique à celui inscrit dans votre .env**).
+    - Ici petit soucis avec CMDER car le script demande une deuxième fois le mot de passe mais il est possible que la page de CMDER bug et que vous ne voyez pas ce qu'il y a d'écrit MAIS, il est possible d'écrire donc **attention d'écrire le même mot de passe** et ensuite appuyer plusieurs fois sur ``ENTRER`` jusqu'à ce que l'affichage redevienne normal.
     - Après s'être connecter à MYSQL avec le mot de passe que vous venez d'inscrire, il va falloir crée la base de donnée via MYSQL pour cela il faudra copier la ligne de commande 
       ``CREATE DATABASE IF NOT EXISTS databasedname;`` et remplace databasedname par le nom de votre base de donnée inscrite dans le .env de symfony, puis ``EXIT;``.  
     - Le script va demander par la suite si vous souhaitez déployer l'application répondez par "Yes" ou "Y" si vous le souhaitez sinon, répondez par "No" ou "N".
