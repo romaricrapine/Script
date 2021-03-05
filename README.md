@@ -50,6 +50,7 @@ _(Il est possible de modifier le chemin en touchant un peu les lignes de code)_
     - Pour cela, rendez-vous dans le dossier "Nginx".
     - Cliquez sur le fichier nginx.conf -> Copier tout le code puis le mettre dans votre fichier nginx.conf dans la racine de votre projet.
     - Modifiez la ligne 6 "root /var/www/nom_du_projet/public;" le "nom_du_projet" par le nom de votre projet.
+    - Pensez à indiquez un mot de passe dans votre .env qui seras réutilisé après pour MYSQL.
     - Push sur GitHub.<br><br>
     
 2. Vous connectez au serveur avec une connexion SSH. <br><br>
