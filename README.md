@@ -67,7 +67,7 @@ _(Il est possible de modifier le chemin en touchant un peu les lignes de code)_
     - Pour sauvegarder les modifications faire : <br>
     ``CTRL+X`` suivis de ``Y`` PUIS ``ENTRER``.
     - Une fois le script prêt il faut l'exécuter, taper : <br>
-    ``chmod +x install.sh`` puis ``ENTER``.
+    ``chmod +x install.sh`` puis ``ENTRER``.
     - Il ne vous reste plus qu'à l'exécuter avec la commande : <br>
     ``./install.sh``.<br><br>
       
