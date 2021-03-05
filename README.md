@@ -75,7 +75,7 @@ _(Il est possible de modifier le chemin en touchant un peu les lignes de code)_
     - Au bout d'un certain temps le script vous demanderas de choisir entre 4 choix pour un serveur MYSQL, sélectionner juste "OK".
     - Ensuite il vous faudra inscrire un mot de passe pour la connexion à MySQL.
     - Ici petit soucis avec CMDER car le script demande une deuxième fois le mot de passe mais il est possible que la page de CMDER bug et que vous ne voyez pas ce qu'il y a d'écrit MAIS, il est possible d'écrire donc fait bien attention d'écrire le même mot de passe et ensuite appuyer plusieurs fois sur ``ENTRER`` jusqu'à ce que l'affichage redevienne normal.
-    - Il va falloir crée la base de donnée via MYSQL pour cela il faudra copier la ligne de commande 
+    - Après s'être connecter à MYSQL avec le mot de passe que vous venez d'inscrire, il va falloir crée la base de donnée via MYSQL pour cela il faudra copier la ligne de commande 
       ``CREATE DATABASE IF NOT EXISTS databasedname;`` et remplace databasedname par le nom de votre base de donnée inscrite dans le .env de symfony, puis ``EXIT;``.  
     - Le script va demander par la suite si vous souhaitez déployer l'application répondez par "Yes" ou "Y" si vous le souhaitez sinon, répondez par "No" ou "N".
     - Si vous avez validé pour continuer, le script va vous demander le lien de votre repository GitHub. (VERIFIER BIEN QUE VOUS AVEZ LE FICHIER nginx.conf).
