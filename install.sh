@@ -57,7 +57,7 @@ apt update && apt install mysql-server -y
 #----------------------------------------#
 
 echo "Create BDD"
-echo "To create your database please enter this: CREATE DATABASE IF NOT EXISTS databasedname; Then exit;"
+echo "After sign in to MYSQL, create your database with this code : CREATE DATABASE IF NOT EXISTS databasedname; Then exit;"
 echo "Please enter your password"
 mysql -u root -p
 
