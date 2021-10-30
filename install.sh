@@ -15,17 +15,6 @@ service nginx start
 
 #----------------------------------------#
 
-echo "Install Symfony"
-wget https://get.symfony.com/cli/installer -O - | bash
-mv /root/.symfony/bin/symfony /usr/local/bin/symfony
-
-#----------------------------------------#
-
-echo "Install Composer"
-apt install composer -y
-
-#----------------------------------------#
-
 echo "Install PHP"
 apt-get install lsb-release
 apt-transport-https ca-certificates -y
@@ -38,6 +27,18 @@ apt-get install php8.0 -y
 
 echo "PHP Packages"
 apt-get install php8.0-{fpm,bcmath,bz2,intl,gd,mbstring,mysql,zip,redis,imagick,intl,yaml,xml,pdo} -y
+
+#----------------------------------------#
+
+echo "Install Symfony"
+wget https://get.symfony.com/cli/installer -O - | bash
+mv /root/.symfony/bin/symfony /usr/local/bin/symfony
+
+#----------------------------------------#
+
+echo "Install Composer"
+curl -s https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
 
 #----------------------------------------#
 
@@ -125,7 +126,7 @@ yarn build
 #----------------------------------------#
 
 echo "Update Schema DATABASE"
-symfony console doctrine:schema:update
+symfony console doctrine:schema:update --force
 
 #----------------------------------------#
 
