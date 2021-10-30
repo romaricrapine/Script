@@ -32,12 +32,12 @@ apt-transport-https ca-certificates -y
 wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list
 apt-get update
-apt-get install php7.4 -y
+apt-get install php8.0 -y
 
 #----------------------------------------#
 
 echo "PHP Packages"
-apt-get install php7.4-{fpm,bcmath,bz2,intl,gd,mbstring,mysql,zip,redis,imagick,intl,yaml,xml,pdo} -y
+apt-get install php8.0-{fpm,bcmath,bz2,intl,gd,mbstring,mysql,zip,redis,imagick,intl,yaml,xml,pdo} -y
 
 #----------------------------------------#
 
